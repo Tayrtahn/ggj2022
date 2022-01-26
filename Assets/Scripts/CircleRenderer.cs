@@ -29,30 +29,21 @@ public class CircleRenderer : MonoBehaviour
         Redraw();
     }
 
-    [ContextMenu("Redraw")]
     private void Redraw()
     {
         if (!_lineRenderer)
             _lineRenderer = this.GetRequiredComponent<LineRenderer>();
-
 
         float slice = (Mathf.PI * 2) / _pointCount;
 
         Vector3[] points = new Vector3[_pointCount];
         for (int i = 0; i < points.Length; ++i)
         {
-            points[i] = PointOnCircle(slice * i);
+            points[i] = Math.PointOnCircle(slice * i, _radius);
         }
 
         _lineRenderer.positionCount = _pointCount;
         _lineRenderer.SetPositions(points);
-    }
-
-    private Vector3 PointOnCircle(float radians)
-    {
-        float x = Mathf.Cos(radians) * _radius;
-        float y = Mathf.Sin(radians) * _radius;
-        return new Vector3(x, y, 0);
     }
 
     public LineRenderer GetLineRenderer() => _lineRenderer;
