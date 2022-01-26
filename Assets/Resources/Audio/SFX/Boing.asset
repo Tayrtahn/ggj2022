@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc785415a57f466fa04f33e34912a62, type: 3}
   m_Name: Boing
   m_EditorClassIdentifier: 
-  clips: []
-  volume: 1
+  clips:
+  - {fileID: 8300000, guid: a8ed118f18b2c4d2798ef31b6c1316d1, type: 3}
+  volume: 0.5
   priority: 0
-  pitchRange: {x: 1, y: 1}
+  pitchRange: {x: 0.9, y: 1.1}
