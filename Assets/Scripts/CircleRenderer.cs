@@ -6,10 +6,21 @@ using UnityEngine;
 public class CircleRenderer : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Radius of the circle")]
     private float _radius = 1;
 
     [SerializeField]
+    [Range(0, 360)]
+    [Tooltip("Length of the arc segment in degrees")]
+    private float _fill = 360;
+
+    [SerializeField]
+    [Tooltip("How many points should be used to draw a full circle")]
     private int _pointCount = 12;
+
+    [SerializeField]
+    [Tooltip("Method of smoothing the location of the last point on the circle")]
+    private InterpolationMode _interpolationMode;
 
     private LineRenderer _lineRenderer;
 
@@ -25,7 +36,7 @@ public class CircleRenderer : MonoBehaviour
 
     private void OnValidate()
     {
-        _pointCount = Mathf.Max(_pointCount, 2);
+        _pointCount = Mathf.Max(_pointCount, 4);
         Redraw();
     }
 
@@ -34,17 +45,39 @@ public class CircleRenderer : MonoBehaviour
         if (!_lineRenderer)
             _lineRenderer = this.GetRequiredComponent<LineRenderer>();
 
-        float slice = (Mathf.PI * 2) / _pointCount;
+        float sliceSize = Mathf.PI * 2 / _pointCount;
+        int sliceCount = Mathf.CeilToInt(_fill * Mathf.Deg2Rad / sliceSize);
 
-        Vector3[] points = new Vector3[_pointCount];
-        for (int i = 0; i < points.Length; ++i)
+        Vector3[] points = new Vector3[sliceCount + 1];
+        for (int i = 0; i < sliceCount + 1; ++i)
         {
-            points[i] = Math.PointOnCircle(slice * i, _radius);
+            points[i] = Math.PointOnCircle(sliceSize * i, _radius);
         }
 
-        _lineRenderer.positionCount = _pointCount;
+        switch (_interpolationMode)
+        {
+            case InterpolationMode.Circle:
+                points[sliceCount] = Math.PointOnCircle(_fill * Mathf.Deg2Rad, _radius);
+                break;
+            case InterpolationMode.Line:
+                Vector3 before = points[sliceCount - 1];
+                Vector3 after = points[sliceCount];
+                float remainder = ((_fill * Mathf.Deg2Rad) % sliceSize) / sliceSize;
+                points[sliceCount] = Vector3.Lerp(before, after, remainder);
+                break;
+        }
+
+        _lineRenderer.positionCount = sliceCount + 1;
         _lineRenderer.SetPositions(points);
+
+        _lineRenderer.loop = (_fill == 360);
     }
 
     public LineRenderer GetLineRenderer() => _lineRenderer;
+
+    public enum InterpolationMode
+    {
+        Line,
+        Circle
+    }
 }
