@@ -15,7 +15,7 @@ public class PlaySound : MonoBehaviour
     }
 
     [ContextMenu("Play")]
-    void Play()
+    public void Play()
     {
         SFXManager.PlaySound(soundType, Random.insideUnitCircle * 5, pitchMultiplier);
     }

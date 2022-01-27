@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SFXManager : Singleton<SFXManager>
+public sealed class SFXManager : Singleton<SFXManager>
 {
     SFXProvider Provider
     {
@@ -35,6 +35,7 @@ public class SFXManager : Singleton<SFXManager>
             _provider.Cleanup();
     }
 
+    [System.Serializable]
     /// <summary>
     /// Base null SFX Provider. No sound will play if used.
     /// </summary>
@@ -146,7 +147,7 @@ public class SFXManager : Singleton<SFXManager>
         }
     }
 
-
+    [System.Serializable]
     class SFXProvider_Standard : SFXProvider
     {
         #region CTOR
@@ -267,6 +268,7 @@ public class SFXManager : Singleton<SFXManager>
         }
     }
 
+    [System.Serializable]
     /// <summary>
     /// Uses panning only.
     /// </summary>

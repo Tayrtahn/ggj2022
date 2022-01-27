@@ -8,7 +8,7 @@ public class UITitleScreen : MonoBehaviour
     void Start()
     {
         // bounce that title!
-        iTween.PunchScale(titleText.gameObject, Vector3.one * 1.2f, 1.0f);
+        //iTween.PunchScale(titleText.gameObject, Vector3.one * 1.2f, 1.0f);
     }
 
 
