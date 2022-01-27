@@ -48,6 +48,11 @@ public class PaddleController : MonoBehaviour
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+        if (_playerInput.currentControlScheme == "Keyboard&Mouse")
+        {
+            Vector2 centroid = Camera.main.WorldToScreenPoint(Vector3.zero);
+            _moveInput = _moveInput - centroid;
+        }
     }
 
     public void Setup(PlayerInput playerInput)
