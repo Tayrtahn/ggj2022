@@ -9,4 +9,6 @@ public enum SoundType
     GameOver,
 
     Boing,
+
+    Uncle,
 }
