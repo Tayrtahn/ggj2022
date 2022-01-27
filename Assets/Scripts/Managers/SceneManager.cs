@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using USceneManager = UnityEngine.SceneManagement.SceneManager;
 using UnityEngine;
 
-public class SceneManager : Singleton<SceneManager>
+public sealed class SceneManager : Singleton<SceneManager>
 {
     SceneProvider Provider
     {
