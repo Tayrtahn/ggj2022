@@ -51,13 +51,13 @@ public class CircleRenderer : MonoBehaviour
         Vector3[] points = new Vector3[sliceCount + 1];
         for (int i = 0; i < sliceCount + 1; ++i)
         {
-            points[i] = Math.PointOnCircle(sliceSize * i, _radius);
+            points[i] = MathHelper.PointOnCircle(sliceSize * i, _radius);
         }
 
         switch (_interpolationMode)
         {
             case InterpolationMode.Circle:
-                points[sliceCount] = Math.PointOnCircle(_fill * Mathf.Deg2Rad, _radius);
+                points[sliceCount] = MathHelper.PointOnCircle(_fill * Mathf.Deg2Rad, _radius);
                 break;
             case InterpolationMode.Line:
                 Vector3 before = points[sliceCount - 1];
