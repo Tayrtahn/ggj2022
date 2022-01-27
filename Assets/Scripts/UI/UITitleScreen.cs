@@ -11,7 +11,6 @@ public class UITitleScreen : MonoBehaviour
         //iTween.PunchScale(titleText.gameObject, Vector3.one * 1.2f, 1.0f);
     }
 
-
     public void Play()
     {
         SFXManager.PlaySound(SoundType.MenuConfirm);
