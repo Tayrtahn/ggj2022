@@ -11,6 +11,8 @@ public class PaddleController : MonoBehaviour
     private float _actualAngle;
     private bool _shouldMove;
 
+    private PlayerInput _playerInput;
+
     [SerializeField]
     private float _maxSpeed = 1;
     [SerializeField]
@@ -46,5 +48,17 @@ public class PaddleController : MonoBehaviour
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+        if (_playerInput.currentControlScheme == "Keyboard&Mouse")
+        {
+            Vector2 centroid = Camera.main.WorldToScreenPoint(Vector3.zero);
+            _moveInput = _moveInput - centroid;
+        }
+    }
+
+    public void Setup(PlayerInput playerInput)
+    {
+        _playerInput = playerInput;
+        Debug.LogFormat("Player #{0} has joined", playerInput.playerIndex + 1);
+
     }
 }
