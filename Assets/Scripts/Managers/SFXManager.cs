@@ -64,7 +64,8 @@ public class SFXManager : Singleton<SFXManager>
             PlaySound(clipSet.GetRandomClip(),
                         pending[head].position,
                         channel, 
-                        clipSet.GetRandomPitch() * pending[head].pitch
+                        clipSet.GetRandomPitch() * pending[head].pitch,
+                        clipSet.Volume
                         );
             head = (head + 1) % MAX_PENDING;
         }
@@ -95,7 +96,7 @@ public class SFXManager : Singleton<SFXManager>
 
         public virtual void StopAllSounds() { }
 
-        protected virtual void PlaySound(AudioClip soundID, Vector3 position, int channel, float pitch = 1, int priority = 1) {}
+        protected virtual void PlaySound(AudioClip soundID, Vector3 position, int channel, float pitch = 1f, float volume = 1f, int priority = 1) {}
 
         protected Camera Camera => Camera.main;
 
@@ -208,9 +209,10 @@ public class SFXManager : Singleton<SFXManager>
             tail = (tail + 1) % MAX_PENDING;
         }
 
-        protected override void PlaySound(AudioClip clip, Vector3 position, int channel, float pitch = 1, int priority = 1)
+        protected override void PlaySound(AudioClip clip, Vector3 position, int channel, float pitch = 1f, float volume = 1f, int priority = 1)
         {
             AudioSourceHandlers[channel].source.Stop();
+            AudioSourceHandlers[channel].source.volume = volume;
             AudioSourceHandlers[channel].source.clip = clip;
             AudioSourceHandlers[channel].source.pitch = pitch;
             AudioSourceHandlers[channel].source.transform.position = position;
@@ -279,9 +281,9 @@ public class SFXManager : Singleton<SFXManager>
 
         #endregion
 
-        protected override void PlaySound(AudioClip clip, Vector3 position, int channel, float pitch = 1, int priority = 1)
+        protected override void PlaySound(AudioClip clip, Vector3 position, int channel, float pitch = 1f, float volume = 1f, int priority = 1)
         {
-            base.PlaySound(clip, position, channel, pitch, priority);
+            base.PlaySound(clip, position, channel, pitch, volume, priority);
             SetAudioSourcePan(AudioSourceHandlers[channel].source, position.x);
         }
 
