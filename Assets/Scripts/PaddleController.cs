@@ -42,6 +42,7 @@ public class PaddleController : MonoBehaviour
             _actualAngle += diff;
         }
 
+        transform.localPosition = MathHelper.PointOnCircle(_actualAngle, Locator.Arena.Radius);
         transform.localRotation = Quaternion.Euler(0, 0, _actualAngle * Mathf.Rad2Deg);
     }
 
@@ -59,6 +60,5 @@ public class PaddleController : MonoBehaviour
     {
         _playerInput = playerInput;
         Debug.LogFormat("Player #{0} has joined", playerInput.playerIndex + 1);
-
     }
 }
