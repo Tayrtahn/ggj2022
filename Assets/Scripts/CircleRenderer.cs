@@ -73,6 +73,7 @@ public class CircleRenderer : MonoBehaviour
         _lineRenderer.loop = (_fill == 360);
     }
 
+    public float Radius => _radius;
     public LineRenderer GetLineRenderer() => _lineRenderer;
 
     public enum InterpolationMode

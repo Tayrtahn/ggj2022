@@ -16,4 +16,9 @@ public enum SoundType
     Pong,
 
     Applause,
+
+    Pickup,
+    PickupSpawn,
+    Pickup_SpeedUp,
+    Pickup_SlowDown,
 }

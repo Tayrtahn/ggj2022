@@ -7,6 +7,11 @@ public class Pickup_Timescale : Pickup
 
     protected override void Collect(Collider other)
     {
+        if (timescale > 1)
+            SFXManager.PlaySound(SoundType.Pickup_SpeedUp);
+        else
+            SFXManager.PlaySound(SoundType.Pickup_SlowDown);
+
         TimeManager.AddTimescaleSource(this, timescale);
         Invoke("Done", duration);
         gameObject.SetActive(false);
@@ -17,7 +22,7 @@ public class Pickup_Timescale : Pickup
         Destroy(gameObject);
     }
 
-    private void OnDestroy()
+    protected override void Goodbye()
     {
         CancelInvoke();
         TimeManager.RemoveTimescaleSource(this);
