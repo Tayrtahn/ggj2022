@@ -77,5 +77,6 @@ public class PaddleController : MonoBehaviour
     }
 
     public float MaxSpeed => _maxSpeed;
+    public float CurrentAngle => _actualAngle;
     public float DeltaAngle => _deltaAngle;
 }
