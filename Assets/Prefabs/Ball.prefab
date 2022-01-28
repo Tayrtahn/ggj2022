@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 237408874347069996}
   - component: {fileID: 1649213985438607533}
   - component: {fileID: 8851620219877656914}
+  - component: {fileID: 2094608435042621664}
+  - component: {fileID: 6310007831332059562}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -82,6 +84,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &2094608435042621664
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29758286410727378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6310007831332059562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29758286410727378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5784735ccd23d31448e132453c01fbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startSpeed: 5
 --- !u!1001 &2961620061520856848
 PrefabInstance:
   m_ObjectHideFlags: 0
