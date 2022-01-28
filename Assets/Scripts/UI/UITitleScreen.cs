@@ -26,8 +26,12 @@ public class UITitleScreen : MonoBehaviour
 
     public void Quit()
     {
-        // quit cuts off sound
-        //SFXManager.PlaySound(SoundType.MenuConfirm);
+        SFXManager.PlaySound(SoundType.MenuConfirm);
+        Invoke("DelayedQuit", 1.0f);
+    }
+
+    void DelayedQuit()
+    {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
