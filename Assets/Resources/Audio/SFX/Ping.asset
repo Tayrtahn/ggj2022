@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc785415a57f466fa04f33e34912a62, type: 3}
-  m_Name: MenuConfirm
+  m_Name: Ping
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 00c55d7c54e9e4570a4d4564f526e67d, type: 3}
-  volume: 0.25
+  volume: 0.5
   priority: 0
-  pitchRange: {x: 3, y: 3}
+  pitchRange: {x: 1, y: 1}
