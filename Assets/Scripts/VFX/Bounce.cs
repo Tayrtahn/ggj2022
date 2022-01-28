@@ -9,6 +9,7 @@ public class Bounce : MonoBehaviour
     public void Play()
     {
         iTween.Stop(gameObject);
+        transform.localScale = Vector3.one;
         iTween.PunchScale(gameObject, Vector3.one * magnitude, duration);
     }
 }
