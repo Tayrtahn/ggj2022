@@ -137,6 +137,8 @@ MonoBehaviour:
   _maxSpeed: 0.1
   _deadzone: 0.5
   _width: 0.18
+  _bounceAngleExaggeration: 5
+  _bounceSpeedMultiplier: 1.1
 --- !u!114 &-5980326126537052855
 MonoBehaviour:
   m_ObjectHideFlags: 0

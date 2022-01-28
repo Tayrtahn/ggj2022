@@ -6,10 +6,6 @@ public class Ball : MonoBehaviour
 {
     [SerializeField]
     private float _startSpeed = 1;
-    [SerializeField]
-    private float _bounceAngleExaggeration = 1;
-    [SerializeField]
-    private float _boundSpeedMultiplier = 1.1f;
 
     private Vector3 _velocity;
     private SphereCollider _sphereCollider;
@@ -75,11 +71,11 @@ public class Ball : MonoBehaviour
                     Vector3 paddleNormal = (paddleLocation - center).normalized;
                     Vector3 wallNormal = (hitPoint - center).normalized;
                     Vector3 normalDiff = paddleNormal - wallNormal;
-                    Vector3 reflectNormal = wallNormal + normalDiff * _bounceAngleExaggeration;
+                    Vector3 reflectNormal = wallNormal + normalDiff * paddle.BounceAngleExaggeration;
                     Vector3 reflectedDirection = Vector3.Reflect(movement, reflectNormal);
                     Vector3 movementAfterHit = reflectedDirection * remainingMovement;
                     transform.position = hitPoint + movementAfterHit;
-                    _velocity = Vector3.Reflect(_velocity, reflectNormal) * _boundSpeedMultiplier;
+                    _velocity = Vector3.Reflect(_velocity, reflectNormal) * paddle.BounceSpeedMultiplier;
 
                     SFXManager.PlaySound(SoundType.Ping, transform.position);
                 }
