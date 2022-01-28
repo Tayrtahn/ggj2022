@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2501125983842493728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4290245032966415600}
+  m_Layer: 0
+  m_Name: DoorPivot_Black
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4290245032966415600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501125983842493728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.95, y: -0, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1737736093131312909}
+  m_Father: {fileID: 6464383841122272253}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2840437315281189381
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6464383841122272253}
+  - component: {fileID: 1470112661938252052}
   m_Layer: 0
   m_Name: YinYangDoor
   m_TagString: Untagged
@@ -27,25 +59,75 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1737736093131312909}
-  - {fileID: 1737736093925291570}
+  - {fileID: 4290245032966415600}
+  - {fileID: 5532347041084856926}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1470112661938252052
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2840437315281189381}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a672797a3ca946e4b6b6270b62e2756, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &8766100439457225878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5532347041084856926}
+  m_Layer: 0
+  m_Name: DoorPivot_White
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5532347041084856926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766100439457225878}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.94, y: 0, z: -0.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1737736093925291570}
+  m_Father: {fileID: 6464383841122272253}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2276310918263984601
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6464383841122272253}
+    m_TransformParent: {fileID: 5532347041084856926}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: be9c0f2f7fb7fee438a6af03f36d3420, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be9c0f2f7fb7fee438a6af03f36d3420, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be9c0f2f7fb7fee438a6af03f36d3420, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53,7 +135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be9c0f2f7fb7fee438a6af03f36d3420, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be9c0f2f7fb7fee438a6af03f36d3420, type: 3}
       propertyPath: m_LocalRotation.w
@@ -103,7 +185,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6464383841122272253}
+    m_TransformParent: {fileID: 4290245032966415600}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ae3e919086f329742ac4e6fa74235a8e, type: 3}
       propertyPath: m_RootOrder
@@ -111,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae3e919086f329742ac4e6fa74235a8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae3e919086f329742ac4e6fa74235a8e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -119,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae3e919086f329742ac4e6fa74235a8e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae3e919086f329742ac4e6fa74235a8e, type: 3}
       propertyPath: m_LocalRotation.w
