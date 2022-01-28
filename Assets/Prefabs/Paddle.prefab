@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 0.1
   _deadzone: 0.5
-  _width: 2
+  _width: 0.18
 --- !u!114 &-5980326126537052855
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class PaddleController : MonoBehaviour
         {
             _desiredAngle = Mathf.Atan2(_moveInput.y, _moveInput.x);
         }
+
+        Debug.DrawLine(MathHelper.PointOnCircle(_actualAngle - _width * 0.5f, Locator.Arena.Radius), MathHelper.PointOnCircle(_actualAngle + _width * 0.5f, Locator.Arena.Radius), Color.magenta);
     }
 
     private void FixedUpdate()
@@ -71,7 +73,7 @@ public class PaddleController : MonoBehaviour
 
     public bool AngleIsCovered(float angle)
     {
-        return Mathf.DeltaAngle(angle * Mathf.Rad2Deg, _actualAngle * Mathf.Rad2Deg) < _width * Mathf.Rad2Deg;
+        return Mathf.Abs(Mathf.DeltaAngle(angle * Mathf.Rad2Deg, _actualAngle * Mathf.Rad2Deg)) < _width * 0.5f * Mathf.Rad2Deg;
     }
 
     public float MaxSpeed => _maxSpeed;

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
-    private PaddleController[] paddleControllers;
+    private PaddleController[] _paddleControllers;
 
     [SerializeField]
     private int _maxPlayers = 2;
@@ -16,13 +16,13 @@ public class PlayerManager : MonoBehaviour
 
     private void OnValidate()
     {
-        if (paddleControllers == null)
+        if (_paddleControllers == null)
         {
-            paddleControllers = new PaddleController[_maxPlayers];
+            _paddleControllers = new PaddleController[_maxPlayers];
         }
         else
         {
-            System.Array.Resize(ref paddleControllers, _maxPlayers);
+            System.Array.Resize(ref _paddleControllers, _maxPlayers);
         }
     }
 
@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     {
         PaddleController controller = playerInput.GetComponent<PaddleController>();
 
-        paddleControllers[playerInput.playerIndex] = controller;
+        _paddleControllers[playerInput.playerIndex] = controller;
 
         controller.Setup(playerInput);
     }
@@ -40,9 +40,9 @@ public class PlayerManager : MonoBehaviour
         get
         {
             int count = 0;
-            for (int i = 0; i < paddleControllers.Length; ++i)
+            for (int i = 0; i < _paddleControllers.Length; ++i)
             {
-                if (paddleControllers[i] != null)
+                if (_paddleControllers[i] != null)
                     ++count;
             }
             return count;
@@ -53,4 +53,6 @@ public class PlayerManager : MonoBehaviour
     {
         return JoinedPlayerCount >= _minPlayers;
     }
+
+    public PaddleController[] GetPaddleControllers() => _paddleControllers;
 }
