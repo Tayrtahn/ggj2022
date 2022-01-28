@@ -16,6 +16,7 @@ public class Jukebox : MonoBehaviour
     public UnityEvent onBeat;
 
     public float volume = 1.0f;
+    public float pitch = 1.0f;
     public float startOffset = 1.0f;
     public float bpm = 140.0f;
     public float interpolateMultiplier = 0.5f;
@@ -38,6 +39,7 @@ public class Jukebox : MonoBehaviour
             audioSources[i] = child.AddComponent<AudioSource>();
             audioSources[i].clip = clips[i];
             audioSources[i].volume = 0.0f;
+            audioSources[i].pitch = pitch;
             audioSources[i].loop = true;
             //audioSources[i].panStereo = (i+1) % 2 == 0 ? -1.0f : 1.0f;
         }

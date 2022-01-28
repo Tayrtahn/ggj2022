@@ -14,4 +14,6 @@ public enum SoundType
 
     Ping,
     Pong,
+
+    Applause,
 }
