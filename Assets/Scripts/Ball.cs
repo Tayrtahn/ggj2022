@@ -55,21 +55,36 @@ public class Ball : MonoBehaviour
         float distanceToHit = Vector3.Distance(rayStart, hitPoint);
         if (distanceToHit < movement.magnitude)
         {
-            Debug.DrawLine(transform.position, hitPoint, Color.cyan, 5);
+            float hitAngle = Mathf.Atan2(hitPoint.y, hitPoint.x);
+            PaddleController[] paddles = Locator.PlayerManager.GetPaddleControllers();
+            bool isHit = false;
+            foreach (PaddleController paddle in paddles)
+            {
+                if (paddle == null)
+                    continue;
 
-            float remainingMovement = movement.magnitude - distanceToHit;
-            Vector3 reflectNormal = (hitPoint - center).normalized;
-            Vector3 reflectedDirection = Vector3.Reflect(movement, reflectNormal);
-            Vector3 movementAfterHit = reflectedDirection * remainingMovement;
-            transform.position = hitPoint + movementAfterHit;
-            _velocity = Vector3.Reflect(_velocity, reflectNormal);
+                if (paddle.AngleIsCovered(hitAngle))
+                {
+                    isHit = true;
+                    float remainingMovement = movement.magnitude - distanceToHit;
+                    Vector3 reflectNormal = (hitPoint - center).normalized;
+                    Vector3 reflectedDirection = Vector3.Reflect(movement, reflectNormal);
+                    Vector3 movementAfterHit = reflectedDirection * remainingMovement;
+                    transform.position = hitPoint + movementAfterHit;
+                    _velocity = Vector3.Reflect(_velocity, reflectNormal);
 
-            SFXManager.PlaySound(SoundType.Ping, transform.position);
-        }
+                    SFXManager.PlaySound(SoundType.Ping, transform.position);
+                }
+            }
+            if (!isHit)
+            {
+                transform.position += movement;
+            }
+            }
         else
         {
             transform.position += movement;
-        }    
+        }
     }
 
     private void UpdateRolling()
