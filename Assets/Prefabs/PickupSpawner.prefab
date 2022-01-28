@@ -47,4 +47,4 @@ MonoBehaviour:
   - {fileID: 6148248071700965880, guid: 8600a67eb8bbc426db734a2c5297e06f, type: 3}
   - {fileID: 3410516881534026217, guid: b54dd4a85eac647689b89b811ac12f64, type: 3}
   maxActivePickups: 5
-  intervals: 5
+  intervals: 10

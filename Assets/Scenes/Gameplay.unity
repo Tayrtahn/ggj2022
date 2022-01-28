@@ -1749,6 +1749,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3904616666066575139, guid: 9a654786c0fce47d393907de1feeb069, type: 3}
+      propertyPath: _spinSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8074013493748024395, guid: 9a654786c0fce47d393907de1feeb069, type: 3}
       propertyPath: m_Name
       value: PlayField
