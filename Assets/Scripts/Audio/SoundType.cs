@@ -11,4 +11,7 @@ public enum SoundType
     Boing,
 
     Uncle,
+
+    Ping,
+    Pong,
 }
