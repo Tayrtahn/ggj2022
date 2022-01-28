@@ -63,6 +63,8 @@ public class Ball : MonoBehaviour
             Vector3 movementAfterHit = reflectedDirection * remainingMovement;
             transform.position = hitPoint + movementAfterHit;
             _velocity = Vector3.Reflect(_velocity, reflectNormal);
+
+            SFXManager.PlaySound(SoundType.Ping, transform.position);
         }
         else
         {
