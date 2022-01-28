@@ -20,6 +20,10 @@ public class PaddleController : MonoBehaviour
     private float _deadzone = 0.1f;
     [SerializeField]
     private float _width = 2;
+    [SerializeField]
+    private float _bounceAngleExaggeration = 1;
+    [SerializeField]
+    private float _bounceSpeedMultiplier = 1.1f;
 
     private void Update()
     {
@@ -79,4 +83,6 @@ public class PaddleController : MonoBehaviour
     public float MaxSpeed => _maxSpeed;
     public float CurrentAngle => _actualAngle;
     public float DeltaAngle => _deltaAngle;
+    public float BounceSpeedMultiplier => _bounceSpeedMultiplier;
+    public float BounceAngleExaggeration => _bounceAngleExaggeration;
 }
