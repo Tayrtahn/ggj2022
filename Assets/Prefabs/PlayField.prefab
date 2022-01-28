@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5541858867927880020}
   - component: {fileID: 7713632683705787806}
   - component: {fileID: 3904616666066575139}
+  - component: {fileID: 6044200235314087972}
   m_Layer: 0
   m_Name: PlayField
   m_TagString: Untagged
@@ -98,6 +99,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 20
+--- !u!114 &6044200235314087972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074013493748024395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2b47ef3af5f4fc2b412086e57cb280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 0.025
+  duration: 0.5
 --- !u!1001 &5482773293029820245
 PrefabInstance:
   m_ObjectHideFlags: 0
