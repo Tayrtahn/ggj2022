@@ -85,4 +85,5 @@ public class PaddleController : MonoBehaviour
     public float DeltaAngle => _deltaAngle;
     public float BounceSpeedMultiplier => _bounceSpeedMultiplier;
     public float BounceAngleExaggeration => _bounceAngleExaggeration;
+    public int PlayerIndex => _playerInput.playerIndex;
 }
