@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Ball : MonoBehaviour
 {
     [SerializeField]
     private float _startSpeed = 1;
 
+    public UnityEvent<Ball> OnExitArena;
+
     private Vector3 _velocity;
     private SphereCollider _sphereCollider;
+
+    private bool _inPlay;
 
     public float Speed
     {
@@ -31,6 +36,7 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         _velocity = Random.insideUnitCircle.normalized * _startSpeed;
+        _inPlay = true;
     }
 
     private void FixedUpdate()
@@ -83,8 +89,16 @@ public class Ball : MonoBehaviour
             }
             if (!isHit)
             {
-                // Missed the paddle
                 transform.position += movement;
+                if (_inPlay)
+                {
+                    // Missed the paddle
+                    _inPlay = false;
+                    if (OnExitArena != null)
+                    {
+                        OnExitArena.Invoke(this);
+                    }
+                }
             }
         }
         else
