@@ -9,6 +9,7 @@ public class PaddleController : MonoBehaviour
 
     private float _desiredAngle;
     private float _actualAngle;
+    private float _deltaAngle;
     private bool _shouldMove;
 
     private PlayerInput _playerInput;
@@ -17,6 +18,8 @@ public class PaddleController : MonoBehaviour
     private float _maxSpeed = 1;
     [SerializeField]
     private float _deadzone = 0.1f;
+    [SerializeField]
+    private float _width = 2;
 
     private void Update()
     {
@@ -32,6 +35,8 @@ public class PaddleController : MonoBehaviour
         if (!_shouldMove)
             return;
 
+        float oldAngle = _actualAngle;
+
         float diff = Mathf.DeltaAngle(_actualAngle * Mathf.Rad2Deg, _desiredAngle * Mathf.Rad2Deg) * Mathf.Deg2Rad;
         if (Mathf.Abs(diff) > _maxSpeed)
         {
@@ -41,6 +46,8 @@ public class PaddleController : MonoBehaviour
         {
             _actualAngle += diff;
         }
+
+        _deltaAngle = _actualAngle - oldAngle;
 
         transform.localPosition = MathHelper.PointOnCircle(_actualAngle, Locator.Arena.Radius);
         transform.localRotation = Quaternion.Euler(0, 0, _actualAngle * Mathf.Rad2Deg);
@@ -61,4 +68,12 @@ public class PaddleController : MonoBehaviour
         _playerInput = playerInput;
         Debug.LogFormat("Player #{0} has joined", playerInput.playerIndex + 1);
     }
+
+    public bool AngleIsCovered(float angle)
+    {
+        return Mathf.DeltaAngle(angle * Mathf.Rad2Deg, _actualAngle * Mathf.Rad2Deg) < _width * Mathf.Rad2Deg;
+    }
+
+    public float MaxSpeed => _maxSpeed;
+    public float DeltaAngle => _deltaAngle;
 }
