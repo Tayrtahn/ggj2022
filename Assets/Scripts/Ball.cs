@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     private float _startSpeed = 1;
     [SerializeField]
     private float _bounceAngleExaggeration = 1;
+    [SerializeField]
+    private float _boundSpeedMultiplier = 1.1f;
 
     private Vector3 _velocity;
     private SphereCollider _sphereCollider;
@@ -77,7 +79,7 @@ public class Ball : MonoBehaviour
                     Vector3 reflectedDirection = Vector3.Reflect(movement, reflectNormal);
                     Vector3 movementAfterHit = reflectedDirection * remainingMovement;
                     transform.position = hitPoint + movementAfterHit;
-                    _velocity = Vector3.Reflect(_velocity, reflectNormal);
+                    _velocity = Vector3.Reflect(_velocity, reflectNormal) * _boundSpeedMultiplier;
 
                     SFXManager.PlaySound(SoundType.Ping, transform.position);
                 }
