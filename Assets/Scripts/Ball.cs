@@ -6,6 +6,10 @@ public class Ball : MonoBehaviour
 {
     [SerializeField]
     private float _startSpeed = 1;
+    [SerializeField]
+    private float _bounceAngleExaggeration = 1;
+    [SerializeField]
+    private float _boundSpeedMultiplier = 1.1f;
 
     private Vector3 _velocity;
     private SphereCollider _sphereCollider;
@@ -67,22 +71,28 @@ public class Ball : MonoBehaviour
                 {
                     isHit = true;
                     float remainingMovement = movement.magnitude - distanceToHit;
-                    Vector3 reflectNormal = (hitPoint - center).normalized;
+                    Vector3 paddleLocation = MathHelper.PointOnCircle(paddle.CurrentAngle, Locator.Arena.Radius);
+                    Vector3 paddleNormal = (paddleLocation - center).normalized;
+                    Vector3 wallNormal = (hitPoint - center).normalized;
+                    Vector3 normalDiff = paddleNormal - wallNormal;
+                    Vector3 reflectNormal = wallNormal + normalDiff * _bounceAngleExaggeration;
                     Vector3 reflectedDirection = Vector3.Reflect(movement, reflectNormal);
                     Vector3 movementAfterHit = reflectedDirection * remainingMovement;
                     transform.position = hitPoint + movementAfterHit;
-                    _velocity = Vector3.Reflect(_velocity, reflectNormal);
+                    _velocity = Vector3.Reflect(_velocity, reflectNormal) * _boundSpeedMultiplier;
 
                     SFXManager.PlaySound(SoundType.Ping, transform.position);
                 }
             }
             if (!isHit)
             {
+                // Missed the paddle
                 transform.position += movement;
             }
-            }
+        }
         else
         {
+            // Moving within the arena
             transform.position += movement;
         }
     }
