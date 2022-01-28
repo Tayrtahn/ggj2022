@@ -69,6 +69,12 @@ public class PaddleController : MonoBehaviour
         }
     }
 
+    public void HandleMenuInput(InputAction.CallbackContext context)
+    {
+        UIPause pause = Object.FindObjectOfType<UIPause>();
+        pause.ToggleMenu();
+    }
+
     public void Setup(PlayerInput playerInput)
     {
         _playerInput = playerInput;

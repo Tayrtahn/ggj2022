@@ -117,6 +117,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f3c87928-fb0d-4a85-8fad-5fc52a1144df
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6465958318429873515}
+        m_TargetAssemblyTypeName: PaddleController, Assembly-CSharp
+        m_MethodName: HandleMenuInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6d87b595-121c-4d60-8417-8d96a2bd09b0
+    m_ActionName: Player/Menu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
