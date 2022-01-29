@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
             }
         }
         _balls.Remove(ball);
+        Destroy(ball.gameObject);
         LaunchBall();
     }
 
