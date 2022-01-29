@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     private float _startSpeed = 1;
 
     public UnityEvent<Ball> OnExitArena;
+    public UnityEvent<Ball, PaddleController> OnHitPaddle;
 
     private Vector3 _velocity;
     private SphereCollider _sphereCollider;
@@ -86,6 +87,8 @@ public class Ball : MonoBehaviour
 
                     SoundType sound = paddle.PlayerIndex == 0 ? SoundType.Ping : SoundType.Pong;
                     SFXManager.PlaySound(sound, transform.position);
+
+                    OnHitPaddle.Invoke(this, paddle);
                 }
             }
             if (!isHit)
