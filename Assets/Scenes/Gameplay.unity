@@ -667,6 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballPrefab: {fileID: 29758286410727378, guid: b3ed625bb1a894eeaaad55115679cf9a, type: 3}
+  _goalPrefab: {fileID: 1163521023625532883, guid: 473ccdf51958cb640b0f5e0f83f4a84a, type: 3}
   OnGameStarted:
     m_PersistentCalls:
       m_Calls: []

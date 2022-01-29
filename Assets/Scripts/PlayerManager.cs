@@ -33,6 +33,8 @@ public class PlayerManager : MonoBehaviour
         _paddleControllers[playerInput.playerIndex] = controller;
 
         controller.Setup(playerInput);
+
+        Locator.GameManager.CreateGoalRegion(controller);
     }
 
     public int JoinedPlayerCount
