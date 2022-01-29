@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     public GoalRegion CreateGoalRegion(int playerIndex, float midpoint, float width)
     {
-        GameObject goalGO = Instantiate(_goalPrefab);
+        GameObject goalGO = Instantiate(_goalPrefab, Locator.Arena.transform);
         GoalRegion goal = goalGO.GetRequiredComponent<GoalRegion>();
         goal.Owner = playerIndex;
         goal.MidPoint = midpoint;

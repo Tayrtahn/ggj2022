@@ -21,7 +21,7 @@ public class GoalRegion : MonoBehaviour
         set
         {
             _midPoint = value;
-            transform.localRotation = Quaternion.Euler(0, 0, (MidPoint - _width * 0.5f) * Mathf.Rad2Deg);
+            transform.rotation = Quaternion.Euler(0, 0, (MidPoint - _width * 0.5f) * Mathf.Rad2Deg);
         }
     }
     public float Width
