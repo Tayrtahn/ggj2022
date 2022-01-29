@@ -12,7 +12,7 @@ public class BallSpawnerManager : MonoBehaviour
 
     public void SpawnFromRandomSpawner()
     {
-        int index = Random.Range(0, _ballSpawners.Count-1);
+        int index = Random.Range(0, _ballSpawners.Count);
         _ballSpawners[index].Spawn(_ballPrefab);
     }
 }

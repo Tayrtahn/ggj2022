@@ -56,7 +56,7 @@ public class BallSpawner : MonoBehaviour
 
     private Transform GetRandomSpawnpoint()
     {
-        int index = Random.Range(0, _spawnPoints.Length - 1);
+        int index = Random.Range(0, _spawnPoints.Length);
         return _spawnPoints[index];
     }
 }
