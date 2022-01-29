@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupEffect_Speed : PickupEffect
@@ -11,8 +9,9 @@ public class PickupEffect_Speed : PickupEffect
 
     protected override void Begin()
     {
-        // increase speed
-        target.GetComponent<SpeedModifier>().AddSpeedModifier(this, magnitude);
+        SpeedModifier sm = target.GetComponent<SpeedModifier>();
+        if (sm)
+            sm.AddSpeedModifier(this, magnitude);
     }
 
     protected override void Process(float delta)
@@ -22,8 +21,9 @@ public class PickupEffect_Speed : PickupEffect
 
     protected override void End()
     {
-        // increase speed
-        target.GetComponent<SpeedModifier>().RemoveSpeedModifier(this);
+        SpeedModifier sm = target.GetComponent<SpeedModifier>();
+        if (sm)
+            sm.RemoveSpeedModifier(this);
     }
 
     float magnitude;

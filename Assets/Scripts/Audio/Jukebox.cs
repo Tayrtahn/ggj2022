@@ -13,6 +13,8 @@ public class Jukebox : MonoBehaviour
         Playing
     }
 
+    public static Jukebox instance;
+
     public UnityEvent onBeat;
 
     public float volume = 1.0f;
@@ -29,6 +31,11 @@ public class Jukebox : MonoBehaviour
     private bool running = false;
 
     State state = State.PlayScheduled;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -102,8 +109,8 @@ public class Jukebox : MonoBehaviour
                     audioSources[i].volume = Mathf.SmoothStep(audioSources[i].volume, flip == i ? volume : 0.0f, interpolateMultiplier * Time.unscaledDeltaTime);
                 }
 
-                if (Keyboard.current.spaceKey.wasPressedThisFrame)
-                    Flip();
+                //if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                //    Flip();
                 break;
 
             default:
