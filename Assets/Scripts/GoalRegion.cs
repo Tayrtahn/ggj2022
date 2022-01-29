@@ -41,7 +41,7 @@ public class GoalRegion : MonoBehaviour
 
     public bool CheckAngleIsInRegion(float angle)
     {
-        return Mathf.Abs(Mathf.DeltaAngle(angle * Mathf.Rad2Deg, _midPoint * Mathf.Rad2Deg)) < _width * Mathf.Rad2Deg;
+        return Mathf.Abs(Mathf.DeltaAngle(angle * Mathf.Rad2Deg, _midPoint * Mathf.Rad2Deg)) < _width * 0.5f * Mathf.Rad2Deg;
     }
 
     public void SetColor(Color color)
