@@ -317,11 +317,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ad9e4312b1bd44bdaa4dce95c70f356, type: 3}
+--- !u!1 &5485719519728860310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1517637167958365266, guid: 1ad9e4312b1bd44bdaa4dce95c70f356, type: 3}
+  m_PrefabInstance: {fileID: 6426225588495444164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5146172339694413356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2180985055351328488, guid: 1ad9e4312b1bd44bdaa4dce95c70f356, type: 3}
   m_PrefabInstance: {fileID: 6426225588495444164}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1739604899798954859 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4686799501271260079, guid: 1ad9e4312b1bd44bdaa4dce95c70f356, type: 3}
+  m_PrefabInstance: {fileID: 6426225588495444164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7591488547063740666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3491671508439650366, guid: 1ad9e4312b1bd44bdaa4dce95c70f356, type: 3}
+  m_PrefabInstance: {fileID: 6426225588495444164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7008922281553920089 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4065127095441582237, guid: 1ad9e4312b1bd44bdaa4dce95c70f356, type: 3}
+  m_PrefabInstance: {fileID: 6426225588495444164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &966440353611467792 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6073093384205411540, guid: 1ad9e4312b1bd44bdaa4dce95c70f356, type: 3}
+  m_PrefabInstance: {fileID: 6426225588495444164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8657900505420653727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5485719519728860310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd569a66bf55b641abab495a0dce408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPoints:
+  - {fileID: 1739604899798954859}
+  - {fileID: 7591488547063740666}
+  - {fileID: 7008922281553920089}
+  - {fileID: 966440353611467792}
+  _launchSpeed: 5
+  _animator: {fileID: 1470112661938252052}
 --- !u!1001 &8763321258062244606
 PrefabInstance:
   m_ObjectHideFlags: 0
