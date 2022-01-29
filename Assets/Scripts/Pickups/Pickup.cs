@@ -5,6 +5,11 @@ public abstract class Pickup : MonoBehaviour
 {
     public UnityEvent<Pickup> Cleanup;
 
+    private void Start()
+    {
+        iTween.PunchScale(gameObject, Vector3.one * 1.1f, 0.5f);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Collect(other);

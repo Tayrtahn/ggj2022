@@ -12,7 +12,7 @@ public class Ball : MonoBehaviour
 
     private Vector3 _velocity;
     private SphereCollider _sphereCollider;
-
+    private PaddleController _lastPaddleHit;
     private bool _inPlay;
 
     public float Speed
@@ -72,6 +72,7 @@ public class Ball : MonoBehaviour
                 if (paddle.AngleIsCovered(hitAngle))
                 {
                     isHit = true;
+                    _lastPaddleHit = paddle;
                     float remainingMovement = movement.magnitude - distanceToHit;
                     Vector3 paddleLocation = MathHelper.PointOnCircle(paddle.CurrentAngle, Locator.Arena.Radius);
                     Vector3 paddleNormal = (paddleLocation - center).normalized;
@@ -116,4 +117,6 @@ public class Ball : MonoBehaviour
         Vector3 rotationAxis = Vector3.Cross(Vector3.back, movement).normalized;
         transform.localRotation = Quaternion.Euler(rotationAxis * angle) * transform.localRotation;
     }
+
+    public PaddleController LastPaddleHit => _lastPaddleHit;
 }
