@@ -28,6 +28,10 @@ public class HUDGame : MonoBehaviour
         else
         {
             scores[scorer] += 1;
+            if (scores[scorer] >= Constants.GAME_OVER_SCORE)
+            {
+                Object.FindObjectOfType<HUDGameOver>().enabled = true;
+            }
             SFXManager.PlaySound(SoundType.Applause);
         }
         iTween.PunchScale(scoreTexts[scorer].gameObject, Vector3.one * 1.00001f, 1f);
