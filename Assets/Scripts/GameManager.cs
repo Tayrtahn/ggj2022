@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
                 continue;
             
             _goals[i].Width = sliceSize;
-            float offset = sliceSize * i;
+            float offset = sliceSize * (i > paddle.PlayerIndex ? i : i + 1);
             _goals[i].MidPoint = paddle.CurrentAngle + offset;
         }
     }
