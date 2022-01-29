@@ -10,9 +10,9 @@ public class BallSpawnerManager : MonoBehaviour
     [SerializeField]
     private GameObject _ballPrefab;
 
-    public Ball SpawnFromRandomSpawner()
+    public void SpawnFromRandomSpawner()
     {
         int index = Random.Range(0, _ballSpawners.Count-1);
-        return _ballSpawners[index].Spawn(_ballPrefab);
+        _ballSpawners[index].Spawn(_ballPrefab);
     }
 }
