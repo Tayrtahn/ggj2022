@@ -147,7 +147,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BallSpawner_Retract
-  m_Speed: 0.75
+  m_Speed: -0.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1557407697331848709}
@@ -160,7 +160,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a1676adfd82e94113ae008fa7030ea4e, type: 2}
+  m_Motion: {fileID: 7400000, guid: c6ea9314e844c4f2399a333e1cb6f26c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -271,7 +271,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BallSpawner_Extend
-  m_Speed: -0.75
+  m_Speed: 0.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8560075403690084179}
@@ -284,7 +284,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a1676adfd82e94113ae008fa7030ea4e, type: 2}
+  m_Motion: {fileID: 7400000, guid: c6ea9314e844c4f2399a333e1cb6f26c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
