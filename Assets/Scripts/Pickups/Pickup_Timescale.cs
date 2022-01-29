@@ -18,7 +18,9 @@ public class Pickup_Timescale : Pickup
             ParticleManager.Emit(ParticleType.Poof, transform.position);
         }
 
-        TimeManager.AddTimescaleSource(this, timescale);
+        //TimeManager.AddTimescaleSource(this, timescale);
+
+        other.gameObject.GetComponent<PickupEffectTarget>().AddEffect(GetEffect(other.gameObject));
         Invoke("Done", duration);
         gameObject.SetActive(false);
     }
@@ -32,5 +34,10 @@ public class Pickup_Timescale : Pickup
     {
         CancelInvoke();
         TimeManager.RemoveTimescaleSource(this);
+    }
+
+    protected override PickupEffect GetEffect(GameObject target)
+    {
+        return new PickupEffect_Speed(target, timescale, duration);
     }
 }
