@@ -76,6 +76,26 @@ public class CircleRenderer : MonoBehaviour
     public float Radius => _radius;
     public LineRenderer GetLineRenderer() => _lineRenderer;
 
+    public float Fill
+    {
+        get => _fill;
+        set
+        {
+            _fill = value;
+            Redraw();
+        }
+    }
+
+    public Color Color
+    {
+        get { return _lineRenderer.startColor; }
+        set
+        {
+            _lineRenderer.startColor = value;
+            _lineRenderer.endColor = value;
+        }
+    }
+
     public enum InterpolationMode
     {
         Line,

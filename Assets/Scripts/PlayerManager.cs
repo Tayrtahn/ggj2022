@@ -14,6 +14,9 @@ public class PlayerManager : MonoBehaviour
     [Tooltip("Minimum number of players needed to start game")]
     private int _minPlayers = 2;
 
+    [SerializeField]
+    private Color[] _playerColors;
+
     private void OnValidate()
     {
         if (_paddleControllers == null)
@@ -55,4 +58,11 @@ public class PlayerManager : MonoBehaviour
     }
 
     public PaddleController[] GetPaddleControllers() => _paddleControllers;
+
+    public Color GetPlayerColor(int playerIndex)
+    {
+        if (_playerColors == null || playerIndex >= _playerColors.Length)
+            return Color.white;
+        return _playerColors[playerIndex];
+    }
 }

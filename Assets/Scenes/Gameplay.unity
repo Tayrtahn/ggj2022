@@ -610,6 +610,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxPlayers: 2
   _minPlayers: 1
+  _playerColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.9865949, a: 1}
 --- !u!1 &907886191
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballPrefab: {fileID: 29758286410727378, guid: b3ed625bb1a894eeaaad55115679cf9a, type: 3}
+  _goalPrefab: {fileID: 1163521023625532883, guid: 473ccdf51958cb640b0f5e0f83f4a84a, type: 3}
   OnGameStarted:
     m_PersistentCalls:
       m_Calls: []
