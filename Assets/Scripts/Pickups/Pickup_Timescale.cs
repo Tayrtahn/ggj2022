@@ -33,7 +33,7 @@ public class Pickup_Timescale : Pickup
     protected override void Goodbye()
     {
         CancelInvoke();
-        TimeManager.RemoveTimescaleSource(this);
+        //TimeManager.RemoveTimescaleSource(this);
     }
 
     protected override PickupEffect GetEffect(GameObject target)
