@@ -114,7 +114,19 @@ MonoBehaviour:
   _startSpeed: 5
   OnExitArena:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -2935585663544267107}
+        m_TargetAssemblyTypeName: BallFX, Assembly-CSharp
+        m_MethodName: OnBallExit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHitPaddle:
     m_PersistentCalls:
       m_Calls:
@@ -142,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1543358b2e07147fd9cda7e992f93b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballBounceMultiplier: 1.1
+  paddleBounceMultiplier: 1.1
 --- !u!54 &2432319401888492920
 Rigidbody:
   m_ObjectHideFlags: 0

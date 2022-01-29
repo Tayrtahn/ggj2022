@@ -14,4 +14,9 @@ public class BallFX : MonoBehaviour
         SFXManager.PlaySound(sound, paddleController.transform.position);
         ParticleManager.Emit(ParticleType.Spark, paddleController.transform.position);
     }
+
+    public void OnBallExit(Ball ball)
+    {
+        ParticleManager.Emit(ParticleType.Starburst, ball.transform.position);
+    }
 }
