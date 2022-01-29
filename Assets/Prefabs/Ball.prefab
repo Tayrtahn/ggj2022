@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1543358b2e07147fd9cda7e992f93b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trailRenderer: {fileID: 1151818008894822855}
   ballBounceMultiplier: 1.1
   paddleBounceMultiplier: 1.1
 --- !u!54 &2432319401888492920
@@ -232,5 +233,10 @@ PrefabInstance:
 --- !u!4 &984823322202700570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2644459978092870666, guid: 1d1ec456878244d30a726b67f151cd29, type: 3}
+  m_PrefabInstance: {fileID: 2961620061520856848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &1151818008894822855 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 2802890027951840983, guid: 1d1ec456878244d30a726b67f151cd29, type: 3}
   m_PrefabInstance: {fileID: 2961620061520856848}
   m_PrefabAsset: {fileID: 0}
