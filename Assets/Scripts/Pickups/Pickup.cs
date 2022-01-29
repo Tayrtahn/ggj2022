@@ -25,4 +25,6 @@ public abstract class Pickup : MonoBehaviour
     protected abstract void Goodbye();
 
     protected abstract void Collect(Collider other);
+
+    protected abstract PickupEffect GetEffect(GameObject target);
 }

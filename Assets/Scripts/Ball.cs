@@ -16,11 +16,13 @@ public class Ball : MonoBehaviour
     private PaddleController _lastPaddleHit;
     private bool _inPlay;
 
+    private SpeedModifier _speedModifier;
+
     public float Speed
     {
         get
         {
-            return _velocity.magnitude;
+            return GetAdjustedVelocity().magnitude;
         }
         set
         {
@@ -32,6 +34,7 @@ public class Ball : MonoBehaviour
     private void Awake()
     {
         _sphereCollider = this.GetRequiredComponent<SphereCollider>();
+        _speedModifier = this.GetComponent<SpeedModifier>();
     }
 
     private void Start()
@@ -50,7 +53,7 @@ public class Ball : MonoBehaviour
 
     private void Move()
     {
-        Vector3 movement = _velocity * Time.deltaTime;
+        Vector3 movement = GetAdjustedVelocity() * Time.deltaTime;
         Vector3 center = Locator.Arena.CenterPosition;
         float radius = Locator.Arena.Radius;
         Vector3 rayStart = transform.position;
@@ -112,11 +115,16 @@ public class Ball : MonoBehaviour
 
     private void UpdateRolling()
     {
-        Vector3 movement = _velocity * Time.deltaTime;
+        Vector3 movement = GetAdjustedVelocity() * Time.deltaTime;
         float distance = movement.magnitude;
         float angle = distance * (180f / Mathf.PI) / _sphereCollider.radius;
         Vector3 rotationAxis = Vector3.Cross(Vector3.back, movement).normalized;
         transform.localRotation = Quaternion.Euler(rotationAxis * angle) * transform.localRotation;
+    }
+
+    Vector3 GetAdjustedVelocity()
+    {
+        return _velocity * (_speedModifier ? _speedModifier.GetSpeedMultiplier() : 1.0f);
     }
 
     public PaddleController LastPaddleHit => _lastPaddleHit;
