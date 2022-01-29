@@ -35,6 +35,7 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
+        ParticleManager.Emit(ParticleType.Poof, transform.position);
         _velocity = Random.insideUnitCircle.normalized * _startSpeed;
         _inPlay = true;
     }
@@ -86,6 +87,7 @@ public class Ball : MonoBehaviour
 
                     SoundType sound = paddle.PlayerIndex == 0 ? SoundType.Ping : SoundType.Pong;
                     SFXManager.PlaySound(sound, transform.position);
+                    ParticleManager.Emit(ParticleType.Spark, transform.position);
                 }
             }
             if (!isHit)
