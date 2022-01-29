@@ -43,4 +43,9 @@ public class GoalRegion : MonoBehaviour
     {
         return Mathf.Abs(Mathf.DeltaAngle(angle * Mathf.Rad2Deg, _midPoint * Mathf.Rad2Deg)) < _width * Mathf.Rad2Deg;
     }
+
+    public void SetColor(Color color)
+    {
+        _circleRenderer.Color = color;
+    }
 }

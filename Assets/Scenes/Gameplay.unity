@@ -610,6 +610,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxPlayers: 2
   _minPlayers: 1
+  _playerColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.9865949, a: 1}
 --- !u!1 &907886191
 GameObject:
   m_ObjectHideFlags: 0

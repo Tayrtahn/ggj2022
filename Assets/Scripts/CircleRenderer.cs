@@ -86,6 +86,16 @@ public class CircleRenderer : MonoBehaviour
         }
     }
 
+    public Color Color
+    {
+        get { return _lineRenderer.startColor; }
+        set
+        {
+            _lineRenderer.startColor = value;
+            _lineRenderer.endColor = value;
+        }
+    }
+
     public enum InterpolationMode
     {
         Line,

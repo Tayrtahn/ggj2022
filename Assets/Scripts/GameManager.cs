@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private bool _gameStarted;
 
     private List<Ball> _balls = new List<Ball>();
-    private List<GoalRegion> _goals = new List<GoalRegion>();
+    private GoalRegion[] _goals;
 
     public UnityEvent OnGameStarted;
 
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         if (!_gameStarted && _playerManager.HasEnoughPlayers())
         {
             _gameStarted = true;
+            CreateGoalRegions();
             // Everyone's excited
             SFXManager.PlaySound(SoundType.Applause);
             OnGameStarted.Invoke();
@@ -50,14 +51,49 @@ public class GameManager : MonoBehaviour
         ball.OnHitPaddle.AddListener(OnBallHitPaddle);
     }
 
-    public void CreateGoalRegion(PaddleController owner)
+    private void CreateGoalRegions()
+    {
+        int numPlayers = Mathf.Max(2, Locator.PlayerManager.JoinedPlayerCount);
+        _goals = new GoalRegion[numPlayers];
+        float sliceSize = (Mathf.PI * 2) / numPlayers;
+        for (int i = 0; i < numPlayers; ++i)
+        {
+            float midpoint = i * sliceSize + sliceSize * 0.5f;
+            GoalRegion goal = CreateGoalRegion(i, midpoint, sliceSize);
+            _goals[i] = goal;
+        }
+    }
+
+    public GoalRegion CreateGoalRegion(int playerIndex, float midpoint, float width)
     {
         GameObject goalGO = Instantiate(_goalPrefab);
         GoalRegion goal = goalGO.GetRequiredComponent<GoalRegion>();
-        goal.Owner = owner.PlayerIndex;
-        goal.MidPoint = owner.CurrentAngle;
-        goal.Width = Mathf.PI;
-        _goals.Add(goal);
+        goal.Owner = playerIndex;
+        goal.MidPoint = midpoint;
+        goal.Width = width;
+        goal.SetColor(Locator.PlayerManager.GetPlayerColor(playerIndex));
+        return goal;
+    }
+
+    private void AdjustGoalRegions(PaddleController paddle)
+    {
+        int numPlayers = Mathf.Max(2, Locator.PlayerManager.JoinedPlayerCount);
+        float sliceSize = (Mathf.PI * 2) / numPlayers;
+
+        GoalRegion hitterGoal = GetGoalForPlayer(paddle.PlayerIndex);
+        hitterGoal.MidPoint = paddle.CurrentAngle;
+        hitterGoal.Width = sliceSize;
+
+        int otherPlayerCount = numPlayers - 1;
+        for (int i = 0; i < _goals.Length; ++i)
+        {
+            if (i == paddle.PlayerIndex)
+                continue;
+            
+            _goals[i].Width = sliceSize;
+            float offset = sliceSize * i;
+            _goals[i].MidPoint = paddle.CurrentAngle + offset;
+        }
     }
 
     public void OnBallExitedArena(Ball ball)
@@ -76,24 +112,17 @@ public class GameManager : MonoBehaviour
 
     public void OnBallHitPaddle(Ball ball, PaddleController paddle)
     {
-        GoalRegion goal = GetGoalForPlayer(paddle.PlayerIndex);
-        if (goal != null)
-        {
-            goal.MidPoint = paddle.CurrentAngle;
-        }
+        AdjustGoalRegions(paddle);
     }
 
     private GoalRegion GetGoalForPlayer(int playerIndex)
     {
-        foreach (GoalRegion goal in _goals)
-        {
-            if (goal.Owner == playerIndex)
-                return goal;
-        }
-        return null;
+        if (_goals == null)
+            return null;
+        return _goals[playerIndex];
     }
 
-    public List<GoalRegion> GetGoalRegions()
+    public GoalRegion[] GetGoalRegions()
     {
         return _goals;
     }
