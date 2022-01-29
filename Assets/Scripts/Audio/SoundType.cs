@@ -16,6 +16,7 @@ public enum SoundType
     Pong,
 
     Applause,
+    Laughter,
 
     Pickup,
     PickupSpawn,
