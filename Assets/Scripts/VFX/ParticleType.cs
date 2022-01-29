@@ -5,4 +5,5 @@ public enum ParticleType
     Poof,
     Spark,
     Sparkles,
+    BallOut,
 }

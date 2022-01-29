@@ -86,11 +86,7 @@ public class Ball : MonoBehaviour
                     transform.position = hitPoint + movementAfterHit;
                     _velocity = Vector3.Reflect(_velocity, reflectNormal) * paddle.BounceSpeedMultiplier;
 
-                    SoundType sound = paddle.PlayerIndex == 0 ? SoundType.Ping : SoundType.Pong;
-                    SFXManager.PlaySound(sound, transform.position);
-
                     OnHitPaddle.Invoke(this, paddle);
-                    ParticleManager.Emit(ParticleType.Spark, transform.position);
                 }
             }
             if (!isHit)
