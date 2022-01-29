@@ -7,6 +7,7 @@ public abstract class Pickup : MonoBehaviour
 
     private void Start()
     {
+        ParticleManager.Emit(ParticleType.Starburst, transform.position);
         iTween.PunchScale(gameObject, Vector3.one * 1.1f, 0.5f);
     }
 

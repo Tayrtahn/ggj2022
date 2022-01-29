@@ -8,9 +8,15 @@ public class Pickup_Timescale : Pickup
     protected override void Collect(Collider other)
     {
         if (timescale > 1)
+        {
             SFXManager.PlaySound(SoundType.Pickup_SpeedUp);
+            ParticleManager.Emit(ParticleType.Spark, transform.position);
+        }
         else
+        {
             SFXManager.PlaySound(SoundType.Pickup_SlowDown);
+            ParticleManager.Emit(ParticleType.Poof, transform.position);
+        }
 
         TimeManager.AddTimescaleSource(this, timescale);
         Invoke("Done", duration);

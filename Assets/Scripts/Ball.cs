@@ -36,6 +36,7 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
+        ParticleManager.Emit(ParticleType.Poof, transform.position);
         _velocity = Random.insideUnitCircle.normalized * _startSpeed;
         _inPlay = true;
     }
@@ -84,9 +85,6 @@ public class Ball : MonoBehaviour
                     Vector3 movementAfterHit = reflectedDirection * remainingMovement;
                     transform.position = hitPoint + movementAfterHit;
                     _velocity = Vector3.Reflect(_velocity, reflectNormal) * paddle.BounceSpeedMultiplier;
-
-                    SoundType sound = paddle.PlayerIndex == 0 ? SoundType.Ping : SoundType.Pong;
-                    SFXManager.PlaySound(sound, transform.position);
 
                     OnHitPaddle.Invoke(this, paddle);
                 }
