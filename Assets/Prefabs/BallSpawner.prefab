@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 2180985055351328488}
   - component: {fileID: 2281709661527568496}
   - component: {fileID: 8012674562431536730}
-  - component: {fileID: 108742472711440467}
   m_Layer: 0
   m_Name: BallSpawner
   m_TagString: Untagged
@@ -114,25 +113,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &108742472711440467
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517637167958365266}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6a36933a4c1584f09abcdd8d15245df2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1593964838050951060
 GameObject:
   m_ObjectHideFlags: 0
