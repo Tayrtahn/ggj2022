@@ -30,7 +30,6 @@ public class BallFX : MonoBehaviour
 
     public void OnBallExit(Ball ball)
     {
-        SFXManager.PlaySound(SoundType.Applause);
         ParticleManager.Emit(ParticleType.Starburst, ball.transform.position);
     }
 }
