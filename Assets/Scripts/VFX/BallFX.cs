@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class BallFX : MonoBehaviour
 {
+    [SerializeField]
+    private TrailRenderer _trailRenderer;
+
     [SerializeField] float ballBounceMultiplier = 1.1f;
     [SerializeField] float paddleBounceMultiplier = 1.1f; 
 
@@ -13,6 +16,12 @@ public class BallFX : MonoBehaviour
         SoundType sound = paddleController.PlayerIndex == 0 ? SoundType.Ping : SoundType.Pong;
         SFXManager.PlaySound(sound, paddleController.transform.position);
         ParticleManager.Emit(ParticleType.Spark, paddleController.transform.position);
+
+        if (_trailRenderer)
+        {
+            _trailRenderer.startColor = Locator.PlayerManager.GetPlayerColor(paddleController.PlayerIndex);
+            _trailRenderer.endColor = Locator.PlayerManager.GetPlayerColor(paddleController.PlayerIndex);
+        }
     }
 
     public void OnBallExit(Ball ball)
