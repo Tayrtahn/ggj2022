@@ -17,6 +17,7 @@ public class Pickup_Timescale : Pickup
             SFXManager.PlaySound(SoundType.Pickup_SlowDown);
             ParticleManager.Emit(ParticleType.SpeedDown, transform.position);
         }
+        ParticleManager.Emit(ParticleType.Starburst, transform.position);
 
         //TimeManager.AddTimescaleSource(this, timescale);
 
