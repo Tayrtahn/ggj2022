@@ -5,9 +5,6 @@ using UnityEngine.Events;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField]
-    private float _startSpeed = 1;
-
     public UnityEvent<Ball> OnExitArena;
     public UnityEvent<Ball, PaddleController> OnHitPaddle;
 
@@ -40,7 +37,6 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         ParticleManager.Emit(ParticleType.Poof, transform.position);
-        _velocity = Random.insideUnitCircle.normalized * _startSpeed;
         _inPlay = true;
     }
 
@@ -120,6 +116,11 @@ public class Ball : MonoBehaviour
         float angle = distance * (180f / Mathf.PI) / _sphereCollider.radius;
         Vector3 rotationAxis = Vector3.Cross(Vector3.back, movement).normalized;
         transform.localRotation = Quaternion.Euler(rotationAxis * angle) * transform.localRotation;
+    }
+
+    public void SetVelocity(Vector3 velocity)
+    {
+        _velocity = velocity;
     }
 
     Vector3 GetAdjustedVelocity()

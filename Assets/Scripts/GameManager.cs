@@ -41,14 +41,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void LaunchBall()
+    public void RegisterBall(Ball ball)
     {
-        // This should probably be moved to the ball launcher
-        GameObject ballGO = Instantiate(_ballPrefab);
-        Ball ball = ballGO.GetComponent<Ball>();
         _balls.Add(ball);
         ball.OnExitArena.AddListener(OnBallExitedArena);
         ball.OnHitPaddle.AddListener(OnBallHitPaddle);
+    }
+
+    private void LaunchBall()
+    {
+        Locator.BallSpawnerManager.SpawnFromRandomSpawner();
     }
 
     private void CreateGoalRegions()
