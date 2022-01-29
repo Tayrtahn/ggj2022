@@ -8,13 +8,8 @@ public class BallSpawner : MonoBehaviour
     private Transform[] _spawnPoints;
     [SerializeField]
     private float _launchSpeed;
-
+    [SerializeField]
     private Animator _animator;
-
-    private void Awake()
-    {
-        _animator = this.GetRequiredComponent<Animator>();
-    }
 
     public void Spawn(GameObject ballPrefab)
     {
