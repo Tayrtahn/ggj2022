@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private GoalRegion[] _goals;
 
     public UnityEvent OnGameStarted;
-    public UnityEvent<int> OnGoal;
+    public UnityEvent<PaddleController, int> OnGoal;
 
     private void Start()
     {
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         {
             if (goal.CheckAngleIsInRegion(angle))
             {
-                OnGoal.Invoke(goal.Owner);
+                OnGoal.Invoke(ball.LastPaddleHit, goal.Owner);
                 Debug.LogFormat("Hit goal for player {0}", goal.Owner + 1);
             }
         }
