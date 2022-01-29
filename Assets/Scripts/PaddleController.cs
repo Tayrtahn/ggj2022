@@ -25,6 +25,9 @@ public class PaddleController : MonoBehaviour
     [SerializeField]
     private float _bounceSpeedMultiplier = 1.1f;
 
+    [SerializeField]
+    private TrailRenderer _trailRenderer;
+
     private void Update()
     {
         _shouldMove = _moveInput.sqrMagnitude > _deadzone;
@@ -78,6 +81,8 @@ public class PaddleController : MonoBehaviour
     public void Setup(PlayerInput playerInput)
     {
         _playerInput = playerInput;
+        _trailRenderer.startColor = Locator.PlayerManager.GetPlayerColor(playerInput.playerIndex);
+        _trailRenderer.endColor = Locator.PlayerManager.GetPlayerColor(playerInput.playerIndex);
         Debug.LogFormat("Player #{0} has joined", playerInput.playerIndex + 1);
     }
 

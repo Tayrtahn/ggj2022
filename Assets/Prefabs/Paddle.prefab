@@ -155,6 +155,7 @@ MonoBehaviour:
   _width: 0.18
   _bounceAngleExaggeration: 5
   _bounceSpeedMultiplier: 1.1
+  _trailRenderer: {fileID: 2813631931912571446}
 --- !u!114 &-5980326126537052855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2644459978092870666, guid: 4b4ea08e2554a4a23b69f6dc11425b9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2644459978092870666, guid: 4b4ea08e2554a4a23b69f6dc11425b9f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -315,6 +316,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2802890027951840983, guid: 4b4ea08e2554a4a23b69f6dc11425b9f, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7408991943665876399, guid: 4b4ea08e2554a4a23b69f6dc11425b9f, type: 3}
       propertyPath: m_Name
       value: PaddleTrail
@@ -324,6 +329,11 @@ PrefabInstance:
 --- !u!4 &2691701918310590699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2644459978092870666, guid: 4b4ea08e2554a4a23b69f6dc11425b9f, type: 3}
+  m_PrefabInstance: {fileID: 137882009326687457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &2813631931912571446 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 2802890027951840983, guid: 4b4ea08e2554a4a23b69f6dc11425b9f, type: 3}
   m_PrefabInstance: {fileID: 137882009326687457}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &362294066478607275
