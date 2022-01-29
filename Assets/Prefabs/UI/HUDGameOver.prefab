@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateGo: {fileID: 7568782723324239564}
+  loadDelay: 6
 --- !u!1 &7144930254932654280
 GameObject:
   m_ObjectHideFlags: 0

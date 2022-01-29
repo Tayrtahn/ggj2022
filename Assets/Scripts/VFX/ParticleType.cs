@@ -6,4 +6,6 @@ public enum ParticleType
     Spark,
     Sparkles,
     Starburst,
+    SpeedUp,
+    SpeedDown,
 }
