@@ -10,6 +10,10 @@ public class BallFX : MonoBehaviour
 
     public void OnBallHit(Ball ball, PaddleController paddleController)
     {
+        // HACK:
+        Debug.Assert(Jukebox.instance);
+        Jukebox.instance.Flip();
+
         iTween.PunchScale(ball.gameObject, Vector3.one * ballBounceMultiplier, 0.5f);
         iTween.PunchScale(paddleController.gameObject, Vector3.one * paddleBounceMultiplier, 0.5f);
 
@@ -26,6 +30,7 @@ public class BallFX : MonoBehaviour
 
     public void OnBallExit(Ball ball)
     {
+        SFXManager.PlaySound(SoundType.Applause);
         ParticleManager.Emit(ParticleType.Starburst, ball.transform.position);
     }
 }
