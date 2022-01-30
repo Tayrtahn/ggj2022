@@ -348,45 +348,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: bpm
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: pitch
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: onBeat.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: onBeat.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
       propertyPath: onBeat.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8993056988434521994}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: onBeat.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: onBeat.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: onBeat.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Bounce, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495931151022718497, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
-      propertyPath: onBeat.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8495931151022718498, guid: 6d77a76a9208c4edb9a02384b3d0a875, type: 3}
       propertyPath: m_Name
       value: Jukebox

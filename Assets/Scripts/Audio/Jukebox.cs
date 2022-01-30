@@ -27,7 +27,7 @@ public class Jukebox : MonoBehaviour
 
     private double nextEventTime;
     private int flip = 0;
-    private AudioSource[] audioSources = new AudioSource[2];
+    private AudioSource[] audioSources;
     private bool running = false;
 
     State state = State.PlayScheduled;
@@ -35,11 +35,12 @@ public class Jukebox : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        audioSources = new AudioSource[clips.Length];
     }
 
     void Start()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < clips.Length; i++)
         {
             GameObject child = new GameObject("MusicPlayer");
             child.transform.parent = gameObject.transform;
@@ -81,7 +82,7 @@ public class Jukebox : MonoBehaviour
                     // so we will schedule it now in order for the system to have enough time
                     // to prepare the playback at the specified time. This may involve opening
                     // buffering a streamed file and should therefore take any worst-case delay into account.
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < clips.Length; i++)
                     {
                         audioSources[i].clip = clips[i];
                         audioSources[i].PlayScheduled(nextEventTime);
@@ -104,7 +105,7 @@ public class Jukebox : MonoBehaviour
                     nextEventTime += 60.0f / bpm;
                 }
 
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < clips.Length; i++)
                 {
                     audioSources[i].volume = Mathf.SmoothStep(audioSources[i].volume, flip == i ? volume : 0.0f, interpolateMultiplier * Time.unscaledDeltaTime);
                 }

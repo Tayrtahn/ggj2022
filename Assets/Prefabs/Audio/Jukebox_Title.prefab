@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8495931151022718503}
   - component: {fileID: 8495931151022718497}
   m_Layer: 0
-  m_Name: Jukebox
+  m_Name: Jukebox_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   volume: 0.5
+  pitch: 0.5
+  startOffset: 1
   bpm: 100
   interpolateMultiplier: 5
   clips:
