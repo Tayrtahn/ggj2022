@@ -86,6 +86,7 @@ public class Ball : MonoBehaviour
                     _velocity = Vector3.Reflect(_velocity, reflectNormal) * paddle.BounceSpeedMultiplier;
 
                     OnHitPaddle.Invoke(this, paddle);
+                    break;
                 }
             }
             if (!isHit)
