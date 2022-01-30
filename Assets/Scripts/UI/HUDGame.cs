@@ -23,7 +23,7 @@ public class HUDGame : MonoBehaviour
         if (scorer == goalId)
         {
             SFXManager.PlaySound(SoundType.Laughter);
-            scores[scorer] -= 1;
+            scores[scorer] = Mathf.Max(scores[scorer] - 1, 0);
         }
         else
         {
