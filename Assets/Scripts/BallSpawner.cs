@@ -10,6 +10,8 @@ public class BallSpawner : MonoBehaviour
     private float _launchSpeed;
     [SerializeField]
     private Animator _animator;
+    [SerializeField]
+    private Transform _tubeRotator;
 
     public void Spawn(GameObject ballPrefab)
     {
@@ -18,6 +20,11 @@ public class BallSpawner : MonoBehaviour
 
     private IEnumerator DoSpawnSequence(GameObject ballPrefab)
     {
+        if (_tubeRotator)
+        {
+            float angle = Random.Range(0, 360);
+            _tubeRotator.localRotation = Quaternion.Euler(0, angle, 0);
+        }
         Extend();
         yield return new WaitUntil(() => _animator.GetCurrentAnimatorStateInfo(0).IsName("Done"));
         Fire(ballPrefab);
