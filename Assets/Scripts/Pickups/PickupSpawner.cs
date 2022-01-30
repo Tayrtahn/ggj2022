@@ -25,7 +25,7 @@ public class PickupSpawner : MonoBehaviour
 
         Pickup toSpawn = GetRandomPickup();
         Vector2 pos2d = Random.insideUnitCircle * (circle.Radius * MARGIN);
-        Vector3 pos = new Vector3(pos2d.x, pos2d.y, 0);
+        Vector3 pos = new Vector3(pos2d.x, pos2d.y, 0) + Constants.CAMERA_DIR;
         Pickup pickup = Instantiate(toSpawn, pos, toSpawn.transform.rotation);
         pickup.transform.SetParent(transform);
         pickup.Cleanup.AddListener(Cleanup);
