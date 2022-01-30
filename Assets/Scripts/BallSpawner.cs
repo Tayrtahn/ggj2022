@@ -42,6 +42,8 @@ public class BallSpawner : MonoBehaviour
         Vector3 launcherDirection = (spawnPoint.position - transform.position);
         Vector3 launchDirection = new Vector3(launcherDirection.x, launcherDirection.y, 0).normalized;
         ball.SetVelocity(launchDirection * _launchSpeed);
+
+        SFXManager.PlaySound(SoundType.LaunchBall, spawnPoint.position);
     }
 
     private void Retract()

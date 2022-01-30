@@ -15,6 +15,11 @@ public enum SoundType
     Ping,
     Pong,
 
+    Extend,
+    Retract,
+    LaunchBall,
+    BallOut,
+
     Applause,
     Laughter,
 

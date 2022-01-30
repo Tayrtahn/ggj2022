@@ -142,7 +142,7 @@ MonoBehaviour:
   Cleanup:
     m_PersistentCalls:
       m_Calls: []
-  timescale: 2
+  timescale: 1.5
   duration: 5
 --- !u!135 &6148248071700965883
 SphereCollider:
