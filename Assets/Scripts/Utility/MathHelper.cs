@@ -23,6 +23,7 @@ public static class MathHelper
 
         //How far on ray the intersections happen
         float t2 = (-b + discriminant) / (2 * a);
+        Debug.Assert(discriminant > 0, "A strange collision happened. Tell Chris about it!");
 
         return lineStart + (directionRay * t2);
     }
