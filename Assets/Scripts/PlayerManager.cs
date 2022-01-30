@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
-    private PaddleController[] _paddleControllers;
+    private PaddleController[] _paddleControllers = new PaddleController[2];
 
     [SerializeField]
     private int _maxPlayers = 2;
@@ -42,6 +42,9 @@ public class PlayerManager : MonoBehaviour
     {
         get
         {
+            if (_paddleControllers == null)
+                return 0;
+
             int count = 0;
             for (int i = 0; i < _paddleControllers.Length; ++i)
             {
