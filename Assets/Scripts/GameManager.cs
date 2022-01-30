@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent OnGameStarted;
     public UnityEvent<PaddleController, int> OnGoal;
+    public UnityEvent<Ball, PaddleController> OnBallHitAPaddle;
 
     private void Start()
     {
@@ -118,6 +119,7 @@ public class GameManager : MonoBehaviour
     public void OnBallHitPaddle(Ball ball, PaddleController paddle)
     {
         AdjustGoalRegions(paddle);
+        OnBallHitAPaddle.Invoke(ball, paddle);
     }
 
     private GoalRegion GetGoalForPlayer(int playerIndex)

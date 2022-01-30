@@ -691,6 +691,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnBallHitAPaddle:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 705507996}
+        m_TargetAssemblyTypeName: LightAnimator, Assembly-CSharp
+        m_MethodName: OnBallHit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &907886195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,6 +1916,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580984570603523905, guid: 69339dca9843d42cbaf2599b52d78e88, type: 3}
+      propertyPath: _rotationSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 580984570603523908, guid: 69339dca9843d42cbaf2599b52d78e88, type: 3}
       propertyPath: m_Name
       value: Directional Light
@@ -1915,11 +1934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580984570603523910, guid: 69339dca9843d42cbaf2599b52d78e88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 580984570603523910, guid: 69339dca9843d42cbaf2599b52d78e88, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 580984570603523910, guid: 69339dca9843d42cbaf2599b52d78e88, type: 3}
       propertyPath: m_LocalRotation.w
