@@ -62,7 +62,7 @@ MonoBehaviour:
   pitch: 2
   startOffset: 1
   bpm: 200
-  interpolateMultiplier: 5
+  interpolateMultiplier: 20
   clips:
   - {fileID: 8300000, guid: 69e4b0db8c0e14fdaa193c9ec4768f3a, type: 3}
   - {fileID: 8300000, guid: e2b088536f7c0477cbb0df49a6bbd51e, type: 3}
