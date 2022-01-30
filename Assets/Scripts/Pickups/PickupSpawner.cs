@@ -12,10 +12,19 @@ public class PickupSpawner : MonoBehaviour
 
     const float MARGIN = 0.8f;
 
-    void Start()
+    private void OnEnable()
+    {
+        InvokeRepeating("SpawnPickup", intervals, intervals);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
+
+    void Awake()
     {
         circle = Object.FindObjectOfType<CircleRenderer>();
-        InvokeRepeating("SpawnPickup", intervals, intervals);
     }
 
     void SpawnPickup()
@@ -48,5 +57,10 @@ public class PickupSpawner : MonoBehaviour
     private void OnDestroy()
     {
         CancelInvoke();
+    }
+
+    public void Enable()
+    {
+        enabled = true;
     }
 }

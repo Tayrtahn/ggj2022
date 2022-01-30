@@ -329,6 +329,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9de019e2e1aa44c592829889efe4105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &268696776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7059448335992306894, guid: 11398f84922b74da2a14014b3ce99c9a, type: 3}
+  m_PrefabInstance: {fileID: 7059448335140394587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cb068c9d5804ac1abb8567af2803f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &283652031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -665,7 +676,19 @@ MonoBehaviour:
   _goalPrefab: {fileID: 1163521023625532883, guid: 473ccdf51958cb640b0f5e0f83f4a84a, type: 3}
   OnGameStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 268696776}
+        m_TargetAssemblyTypeName: PickupSpawner, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnGoal:
     m_PersistentCalls:
       m_Calls:
