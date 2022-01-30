@@ -20,6 +20,13 @@ public class PaddleModelGenerator : MonoBehaviour
         Redraw();
     }
 
+    public void SetColor(Color color)
+    {
+        _middle.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color);
+        _top.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color);
+        _bottom.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color);
+    }
+
     private void OnValidate()
     {
         Redraw();

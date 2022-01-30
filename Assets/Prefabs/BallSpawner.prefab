@@ -132,6 +132,7 @@ MonoBehaviour:
   - {fileID: 6073093384205411540}
   _launchSpeed: 6
   _animator: {fileID: 0}
+  _tubeRotator: {fileID: 3343070496852577079}
 --- !u!1 &1593964838050951060
 GameObject:
   m_ObjectHideFlags: 0

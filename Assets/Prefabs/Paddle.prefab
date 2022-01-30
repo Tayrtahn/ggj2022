@@ -159,6 +159,7 @@ MonoBehaviour:
   _bounceAngleExaggeration: 5
   _bounceSpeedMultiplier: 1.1
   _trailRenderer: {fileID: 2813631931912571446}
+  _modelGenerator: {fileID: 1600990511453638616}
 --- !u!114 &-5980326126537052855
 MonoBehaviour:
   m_ObjectHideFlags: 0
