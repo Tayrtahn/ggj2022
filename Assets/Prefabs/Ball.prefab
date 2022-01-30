@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5784735ccd23d31448e132453c01fbcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startSpeed: 5
   OnExitArena:
     m_PersistentCalls:
       m_Calls:
@@ -157,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trailRenderer: {fileID: 1151818008894822855}
+  _ballMaterial: {fileID: 2100000, guid: 3596677b3569648f5b4d57be1ed046ce, type: 2}
   ballBounceMultiplier: 1.1
   paddleBounceMultiplier: 1.1
 --- !u!114 &-1309907656276445555
