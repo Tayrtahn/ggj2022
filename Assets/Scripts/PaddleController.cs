@@ -27,6 +27,8 @@ public class PaddleController : MonoBehaviour
 
     [SerializeField]
     private TrailRenderer _trailRenderer;
+    [SerializeField]
+    private PaddleModelGenerator _modelGenerator;
 
     private void Update()
     {
@@ -81,8 +83,10 @@ public class PaddleController : MonoBehaviour
     public void Setup(PlayerInput playerInput)
     {
         _playerInput = playerInput;
-        _trailRenderer.startColor = Locator.PlayerManager.GetPlayerColor(playerInput.playerIndex);
-        _trailRenderer.endColor = Locator.PlayerManager.GetPlayerColor(playerInput.playerIndex);
+        Color playerColor = Locator.PlayerManager.GetPlayerColor(playerInput.playerIndex);
+        _trailRenderer.startColor = playerColor;
+        _trailRenderer.endColor = playerColor;
+        _modelGenerator.SetColor(playerColor);
         Debug.LogFormat("Player #{0} has joined", playerInput.playerIndex + 1);
     }
 
