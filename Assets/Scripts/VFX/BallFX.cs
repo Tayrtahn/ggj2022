@@ -5,8 +5,16 @@ public class BallFX : MonoBehaviour
     [SerializeField]
     private TrailRenderer _trailRenderer;
 
+    private Material _ballMaterial;
+
     [SerializeField] float ballBounceMultiplier = 1.1f;
-    [SerializeField] float paddleBounceMultiplier = 1.1f; 
+    [SerializeField] float paddleBounceMultiplier = 1.1f;
+
+    private void Awake()
+    {
+        MeshRenderer meshRenderer = this.GetRequiredComponent<MeshRenderer>();
+        _ballMaterial = meshRenderer.material;
+    }
 
     public void OnBallHit(Ball ball, PaddleController paddleController)
     {
@@ -21,10 +29,17 @@ public class BallFX : MonoBehaviour
         SFXManager.PlaySound(sound, paddleController.transform.position);
         ParticleManager.Emit(ParticleType.Spark, paddleController.transform.position);
 
+        Color playerColor = Locator.PlayerManager.GetPlayerColor(paddleController.PlayerIndex);
+
         if (_trailRenderer)
         {
-            _trailRenderer.startColor = Locator.PlayerManager.GetPlayerColor(paddleController.PlayerIndex);
-            _trailRenderer.endColor = Locator.PlayerManager.GetPlayerColor(paddleController.PlayerIndex);
+            _trailRenderer.startColor = playerColor;
+            _trailRenderer.endColor = playerColor;
+        }
+
+        if (_ballMaterial)
+        {
+            _ballMaterial.SetColor("_EmissionColor", playerColor);
         }
     }
 
