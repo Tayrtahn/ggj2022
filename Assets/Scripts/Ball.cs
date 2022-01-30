@@ -90,7 +90,7 @@ public class Ball : MonoBehaviour
             }
             if (!isHit)
             {
-                transform.position += movement;
+                //transform.position += movement;
                 if (_inPlay)
                 {
                     // Missed the paddle
