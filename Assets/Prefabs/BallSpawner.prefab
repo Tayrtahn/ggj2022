@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 2180985055351328488}
   - component: {fileID: 2281709661527568496}
   - component: {fileID: 8012674562431536730}
+  - component: {fileID: 7932932522447976301}
   m_Layer: 0
   m_Name: BallSpawner
   m_TagString: Untagged
@@ -112,6 +113,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7932932522447976301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517637167958365266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd569a66bf55b641abab495a0dce408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPoints:
+  - {fileID: 4686799501271260079}
+  - {fileID: 3491671508439650366}
+  - {fileID: 4065127095441582237}
+  - {fileID: 6073093384205411540}
+  _launchSpeed: 6
+  _animator: {fileID: 0}
 --- !u!1 &1593964838050951060
 GameObject:
   m_ObjectHideFlags: 0
